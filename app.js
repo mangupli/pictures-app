@@ -58,12 +58,12 @@ app.delete("/api/pictures/:id", async (req, res) => {
 
     const picture = await Picture.findByPk(+id);
     if (picture) {
-      // удалить файл 
+      // удалить файл
       await fs.unlink(path.join(__dirname, "public", picture.filePath));
 
       // удалить запись в бд
       await Picture.destroy({ where: { id } });
-      
+
       return res.sendStatus(204);
     }
     return res.status(400).json({ message: "Такой картинки не найдено" });
@@ -73,9 +73,9 @@ app.delete("/api/pictures/:id", async (req, res) => {
   }
 });
 
-const PORT = 4000;
+const PORT = process.env.PORT ?? 3000;
 
 // Запускаем сервер
 app.listen(PORT, () => {
-  console.log(`Сервер запустился на ${PORT}`);
+  console.log(`Сервер запустился на ${PORT} 💖`);
 });
