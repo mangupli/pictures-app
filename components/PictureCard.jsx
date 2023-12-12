@@ -3,7 +3,7 @@ const TrashIcon = require("./TrashIcon");
 
 function PictureCard({ picture }) {
   return (
-    <div className="js-picture relative" data-id={picture.id}>
+    <div className="js-picture relative mt-4" data-id={picture.id}>
       <img src={picture.filePath} />
       <div className="js-delete absolute right-0 top-0">
         <TrashIcon />

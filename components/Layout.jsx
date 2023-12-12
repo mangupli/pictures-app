@@ -10,7 +10,7 @@ function Layout({ children }) {
         <link rel="stylesheet" href="/styles/style.css" />
         <title>Pictures</title>
       </head>
-      <body className="mx-auto mt-8 max-w-screen-lg">{children}</body>
+      <body className="container mx-auto my-8 px-10">{children}</body>
     </html>
   );
 }

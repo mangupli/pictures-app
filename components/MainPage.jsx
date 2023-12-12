@@ -9,7 +9,7 @@ function MainPage({ pictures }) {
       <h1 className="mb-4 text-3xl font-bold uppercase">Наши картинки</h1>
       <PictureAddForm />
 
-      <div className="js-pictures-container mt-4 grid grid-cols-3 gap-10">
+      <div className="js-pictures-container mt-4 w-full gap-x-4 md:grid md:grid-cols-2 lg:grid-cols-3">
         {pictures.map((picture) => (
           <Picture picture={picture} />
         ))}
