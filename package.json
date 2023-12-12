@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "// скрипт для запуска сервера в режиме разработки": "",
     "dev": "nodemon app.js --ext js,json,jsx",
+    "// скрипт для накатывания миграций": "",
     "dbr": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "// скрипт для работы tailwind": "",
+    "tailwind": "npx tailwindcss -i ./components/input.css -o ./public/styles/style.css --watch",
     "start": "node app.js"
   },
   "keywords": [],
