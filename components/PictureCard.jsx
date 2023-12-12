@@ -1,12 +1,13 @@
-const React = require('react');
+const React = require("react");
+const TrashIcon = require("./TrashIcon");
 
 function PictureCard({ picture }) {
   return (
-    <div className="js-picture" data-id={picture.id}>
+    <div className="js-picture relative" data-id={picture.id}>
       <img src={picture.filePath} />
-      <button type="button" className="js-delete">
-        Удалить
-      </button>
+      <div className="js-delete absolute right-0 top-0">
+        <TrashIcon />
+      </div>
     </div>
   );
 }

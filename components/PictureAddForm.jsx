@@ -1,12 +1,12 @@
-const React = require('react');
+const React = require("react");
 
 function PictureAddForm() {
   return (
-    <form className="js-form">
+    <form className="js-form flex w-72 flex-col">
       <input type="file" accept="image/*" name="picture" />
       <button
         type="submit"
-        className="py-1 px-4 bg-green-300 my-4 hover:bg-green-400"
+        className="my-4 bg-green-300 px-4 py-1 hover:bg-green-400"
       >
         Загрузить картинку
       </button>

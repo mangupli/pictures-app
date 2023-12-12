@@ -1,8 +1,8 @@
-const form = document.querySelector('.js-form');
-const picturesContainer = document.querySelector('.js-pictures-container');
+const form = document.querySelector(".js-form");
+const picturesContainer = document.querySelector(".js-pictures-container");
 
 if (form) {
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const input = e.target.picture;
@@ -11,18 +11,21 @@ if (form) {
     const formData = new FormData();
 
     // добавляем по ключу 'picture' файл, который загрузил пользователь
-    formData.append('picture', input.files[0]);
+    formData.append("picture", input.files[0]);
 
     // Отправка запроса на сервер для загрузки картинки
-    const response = await fetch('/api/pictures', {
-      method: 'POST',
+    const response = await fetch("/api/pictures", {
+      method: "POST",
       body: formData,
       // внимание - headers не нужны
     });
 
     const data = await response.json();
     if (response.ok) {
-      picturesContainer?.insertAdjacentHTML('afterbegin', data.html);
+      // добавляем картинку на страницу
+      picturesContainer?.insertAdjacentHTML("afterbegin", data.html);
+      // очищаем инпут
+      input.value = "";
     } else {
       console.error(data.message);
     }
@@ -30,12 +33,12 @@ if (form) {
 }
 
 if (picturesContainer) {
-  picturesContainer.addEventListener('click', async (e) => {
-    if (e.target.classList.contains('js-delete')) {
-      const pictureCard = e.target.closest('.js-picture');
+  picturesContainer.addEventListener("click", async (e) => {
+    if (e.target.classList.contains("js-delete")) {
+      const pictureCard = e.target.closest(".js-picture");
       const { id } = pictureCard?.dataset;
       const response = await fetch(`/api/pictures/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
       if (response.ok) {
         pictureCard.remove();
